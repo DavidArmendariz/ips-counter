@@ -1,10 +1,10 @@
 class DataSingleton(type):
-    _instances = {}
+    instances = {}
 
     def __call__(cls, *args, **kwargs):
-        if cls not in cls._instances:
-            cls._instances[cls] = super(DataSingleton, cls).__call__(*args, **kwargs)
-        return cls._instances[cls]
+        if cls not in cls.instances:
+            cls.instances[cls] = super(DataSingleton, cls).__call__(*args, **kwargs)
+        return cls.instances[cls]
 
 
 class Data(metaclass=DataSingleton):
