@@ -1,0 +1,7 @@
+.gitignore
+.dockerignore
+.python-version
+Dockerfile
+docker-compose.yaml
+.git
+.vscode
