@@ -1,5 +1,5 @@
 import unittest
-from ..get_top_k_ips import get_top_k_ips
+from ..clear_data import clear_data
 from ..data import Data
 
 
@@ -8,7 +8,7 @@ class TestGetTopKIps(unittest.TestCase):
     def setUpClass(cls):
         cls.data = Data()
 
-    def test_get_top_k_ips(self):
+    def test_clear_data(self):
         frequencies = {
             "127.0.0.1": {"count": 1, "index_in_heap": 0},
             "127.0.0.2": {"count": 10, "index_in_heap": 1},
@@ -25,7 +25,6 @@ class TestGetTopKIps(unittest.TestCase):
         ]
         self.data.set_frequencies(frequencies)
         self.data.set_top_k_words(top_k_words)
-        self.assertEqual(
-            get_top_k_ips(),
-            ["127.0.0.5", "127.0.0.4", "127.0.0.3", "127.0.0.2", "127.0.0.1"],
-        )
+        clear_data()
+        self.assertEqual(self.data.get_frequencies(), {})
+        self.assertEqual(self.data.get_top_k_words(), [])
