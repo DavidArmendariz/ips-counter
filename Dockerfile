@@ -1,9 +1,8 @@
 FROM python:3.9.0
 
-WORKDIR /app
+ENV PYTHONUNBUFFERED 1
 
-ENV FLASK_APP=src/app.py
-ENV FLASK_RUN_HOST=0.0.0.0
+WORKDIR /app
 
 RUN pip install poetry
 

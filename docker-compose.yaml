@@ -4,3 +4,10 @@ services:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      FLASK_APP: src/app.py
+      FLASK_RUN_HOST: 0.0.0.0
+      FLASK_DEBUG: 1
+      NUMBER_OF_IPS: 100
